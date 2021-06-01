@@ -1,0 +1,17 @@
+---
+kind: pipeline
+type: docker
+name: default
+
+steps:
+- name: terraform deploy
+  image: jmccann/drone-terraform:latest
+  actions:
+  - plan
+  sensitive: true
+  var_files:
+  - prod.tfvars
+
+when:
+  branch:
+  - main
