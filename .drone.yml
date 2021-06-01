@@ -5,20 +5,15 @@ name: default
 
 steps:
 - name: terraform plan
-  image: jmccann/drone-terraform:latest
-  actions:
-  - plan
-  sensitive: true
-  var_files:
-  - prod.tfvars
-
-- name: terraform deploy
-  image: jmccann/drone-terraform:latest
-  actions:
-  - apply
-  sensitive: true
-  var_files:
-  - prod.tfvars
+  image: hashicorp/terraform:latest
+  environment:
+    AWS_ACCESS_KEY_ID:
+        from_secret: access_key
+    AWS_SECRET_ACCESS_KEY:
+        from_secret: secret_access_key
+  commands: 
+    - terraform init
+    - terraform plan -var-file:"prod.tfvars"
 
 when:
   branch:
