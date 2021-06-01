@@ -4,10 +4,18 @@ type: docker
 name: default
 
 steps:
-- name: terraform deploy
+- name: terraform plan
   image: jmccann/drone-terraform:latest
   actions:
   - plan
+  sensitive: true
+  var_files:
+  - prod.tfvars
+
+- name: terraform deploy
+  image: jmccann/drone-terraform:latest
+  actions:
+  - apply
   sensitive: true
   var_files:
   - prod.tfvars
