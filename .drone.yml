@@ -7,10 +7,10 @@ steps:
 - name: terraform plan
   image: hashicorp/terraform:latest
   environment:
-    AWS_ACCESS_KEY_ID:
-        from_secret: access_key
-    AWS_SECRET_ACCESS_KEY:
-        from_secret: secret_access_key
+    access_key:
+      from_secret: access_key
+    secret_key:
+      from_secret: secret_access_key
   commands: 
     - terraform init
     - terraform plan -var-file:"prod.tfvars"
