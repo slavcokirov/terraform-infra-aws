@@ -12,7 +12,7 @@ steps:
     from_secret: secret_access_key
   commands: 
     - terraform init
-    - terraform plan -var-file:"prod.tfvars"
+    - terraform plan -var-file:"prod.tfvars" -auto-approve
 
 when:
   branch:
