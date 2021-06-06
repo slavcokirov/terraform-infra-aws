@@ -1,4 +1,4 @@
-/*resource "aws_db_instance" "db" {
+resource "aws_db_instance" "db" {
   allocated_storage    = 10
   engine               = "mariadb"
   engine_version       = "10.5.8"
@@ -24,4 +24,3 @@ resource "aws_db_subnet_group" "db_group" {
     Name = "My DB subnet group"
   }
 }
-*/

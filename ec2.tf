@@ -3,7 +3,7 @@ resource "random_shuffle" "subnets" {
   result_count = 1
 }
 
-/*resource "aws_instance" "exampleapp" {
+resource "aws_instance" "exampleapp" {
   ami           = "ami-063d4ab14480ac177"
   instance_type = "t2.micro"
 
@@ -16,4 +16,4 @@ resource "random_shuffle" "subnets" {
   tags = {
     Name = "exampleapp-server"
   }
-}*/
+}
