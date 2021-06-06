@@ -8,7 +8,7 @@ steps:
   image: slavchokirov/terra-v:0.15.5
   commands: 
     - terraform init
-    - terraform plan -var-file="prod.tfvars" -auto-approve
+    - terraform plan -var-file="prod.tfvars"
   environment:
     AWS_ACCESS_KEY_ID:
       from_secret: AWS_ACCESS_KEY_ID
