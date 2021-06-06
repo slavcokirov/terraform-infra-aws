@@ -13,7 +13,7 @@ resource "aws_db_instance" "db" {
 resource "random_password" "pass_db" {
   length           = 16
   special          = true
-  override_special = "_%@"
+  override_special = "_%"
 }
 
 resource "aws_db_subnet_group" "db_group" {
