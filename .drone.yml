@@ -8,7 +8,17 @@ steps:
   image: slavchokirov/terra-v:0.15.5
   commands: 
     - terraform init
-    - terraform plan -var-file="prod.tfvars"
+    - terraform plan -var-file="prod.tfvars" -out=tfplan
+  environment:
+    AWS_ACCESS_KEY_ID:
+      from_secret: AWS_ACCESS_KEY_ID
+    AWS_SECRET_ACCESS_KEY:
+      from_secret: AWS_SECRET_ACCESS_KEY
+      
+- name: terraform deploy
+  image: slavchokirov/terra-v:0.15.5
+  commands: 
+    - terraform apply tfplan -var-file="prod.tfvars"
   environment:
     AWS_ACCESS_KEY_ID:
       from_secret: AWS_ACCESS_KEY_ID
