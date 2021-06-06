@@ -18,7 +18,7 @@ steps:
 - name: terraform deploy
   image: slavchokirov/terra-v:0.15.5
   commands: 
-    - terraform apply -var-file="prod.tfvars" tfplan
+    - terraform apply tfplan
   environment:
     AWS_ACCESS_KEY_ID:
       from_secret: AWS_ACCESS_KEY_ID
