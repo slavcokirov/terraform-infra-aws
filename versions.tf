@@ -8,11 +8,11 @@ terraform {
     }
   }
 
- /* backend "s3" {
+  backend "s3" {
     bucket         = "slavchokirov-exampleapp-prod-tf-state"
     key            = "prod.tfstate"
     region         = "eu-west-1"
     dynamodb_table = "terraform-state-s3-dynamodb"
     encrypt        = true
-  }*/
+  }
 }
