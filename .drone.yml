@@ -6,7 +6,8 @@ name: default
 steps:
 - name: terraform plan
   image: slavchokirov/terra-v:0.15.5
-  commands: 
+  commands:
+    - cd ./terraform 
     - terraform init
     - terraform plan -var-file="prod.tfvars" -out=tfplan
   environment:
@@ -15,15 +16,15 @@ steps:
     AWS_SECRET_ACCESS_KEY:
       from_secret: AWS_SECRET_ACCESS_KEY
       
-- name: terraform deploy
-  image: slavchokirov/terra-v:0.15.5
-  commands: 
-    - terraform apply tfplan
-  environment:
-    AWS_ACCESS_KEY_ID:
-      from_secret: AWS_ACCESS_KEY_ID
-    AWS_SECRET_ACCESS_KEY:
-      from_secret: AWS_SECRET_ACCESS_KEY
+#- name: terraform deploy
+#  image: slavchokirov/terra-v:0.15.5
+#  commands: 
+#    - terraform apply tfplan
+#  environment:
+#    AWS_ACCESS_KEY_ID:
+#      from_secret: AWS_ACCESS_KEY_ID
+#    AWS_SECRET_ACCESS_KEY:
+#      from_secret: AWS_SECRET_ACCESS_KEY
       
 when:
   branch:
