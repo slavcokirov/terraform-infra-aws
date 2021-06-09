@@ -10,7 +10,7 @@ Terraform is used as a infrastructure as code tool deployments.
 
 Steps:
 
-1. cd <repo_dir>
+1. cd <repo_dir>/terraform
 2. Initiate the remote storage state:
 ```teraform init```
 3. Plan changes:
