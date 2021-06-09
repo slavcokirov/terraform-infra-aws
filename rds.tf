@@ -21,6 +21,6 @@ resource "aws_db_subnet_group" "db_group" {
   subnet_ids = tolist(aws_subnet.dbsns.*.id)
 
   tags = {
-    Name = format("%s-${var.db_subnet_suffix}-%s", "${var.infra_name}-${var.env}", element(var.azs, count.index))
+    Name = format("${var.infra_name}-${var.env}-db-subnet-group")
   }
 }
