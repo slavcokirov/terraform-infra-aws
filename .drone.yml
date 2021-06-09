@@ -16,15 +16,16 @@ steps:
     AWS_SECRET_ACCESS_KEY:
       from_secret: AWS_SECRET_ACCESS_KEY
       
-#- name: terraform deploy
-#  image: slavchokirov/terra-v:0.15.5
-#  commands: 
-#    - terraform apply tfplan
-#  environment:
-#    AWS_ACCESS_KEY_ID:
-#      from_secret: AWS_ACCESS_KEY_ID
-#    AWS_SECRET_ACCESS_KEY:
-#      from_secret: AWS_SECRET_ACCESS_KEY
+- name: terraform deploy
+  image: slavchokirov/terra-v:0.15.5
+  commands:
+    - cd ./terraform 
+    - terraform apply tfplan
+  environment:
+    AWS_ACCESS_KEY_ID:
+      from_secret: AWS_ACCESS_KEY_ID
+    AWS_SECRET_ACCESS_KEY:
+      from_secret: AWS_SECRET_ACCESS_KEY
       
 when:
   branch:
