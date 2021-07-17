@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = "slavchokirov-exampleapp-prod-tf-state"
+  bucket = "unique-name-of-your-s3-bucket"
 
   versioning {
     enabled = true

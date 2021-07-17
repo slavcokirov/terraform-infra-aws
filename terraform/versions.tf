@@ -9,7 +9,7 @@ terraform {
   }
 
   backend "s3" {
-    bucket         = "slavchokirov-exampleapp-prod-tf-state"
+    bucket         = "your-s3-bucket-name"
     key            = "prod.tfstate"
     region         = "eu-west-1"
     dynamodb_table = "terraform-state-s3-dynamodb"
